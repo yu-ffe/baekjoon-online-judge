@@ -26,10 +26,19 @@ folder_path = os.getcwd()
 repository_url = 'https://github.com/yu-ffe/baekjoon-online-judge.git'
 
 subprocess.run(['git', 'init'])
-subprocess.run(['git', 'remote', 'add', 'origin', repository_url])
-subprocess.run(['git', 'checkout', '-b', 'main'])
+
+try:
+    subprocess.run(['git', 'remote', 'add', 'origin', repository_url])
+except subprocess.CalledProcessError:
+    print("원격 저장소가 이미 설정되어 있습니다.")
+
 subprocess.run(['git', 'add', '.'])
 subprocess.run(['git', 'commit', '-m', 'Initial commit'])
+
+# 원격 저장소에서 최신 데이터를 가져옵니다.
+subprocess.run(['git', 'pull', 'origin', 'main', '--rebase'])
+
+# 변경 사항을 푸시합니다.
 subprocess.run(['git', 'push', '-u', 'origin', 'main'])
 
 print("폴더가 GitHub에 성공적으로 업로드되었습니다.")
