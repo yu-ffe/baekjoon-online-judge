@@ -27,6 +27,7 @@ repository_url = 'https://github.com/yu-ffe/baekjoon-online-judge.git'
 
 subprocess.run(['git', 'init'])
 subprocess.run(['git', 'remote', 'add', 'origin', repository_url])
+subprocess.run(['git', 'checkout', '-b', 'main'])
 subprocess.run(['git', 'add', '.'])
 subprocess.run(['git', 'commit', '-m', 'Initial commit'])
 subprocess.run(['git', 'push', '-u', 'origin', 'main'])
